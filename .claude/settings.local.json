@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(identify \"/d/桌面/Campus Forum/reference.png\")",
+      "Bash(python3 -c \"from PIL import Image; img = Image.open\\('/d/桌面/Campus Forum/reference.png'\\); print\\(f'Size: {img.size}, Mode: {img.mode}'\\)\")",
+      "Bash(python -c \"from PIL import Image; img = Image.open\\('/d/桌面/Campus Forum/reference.png'\\); print\\(f'Size: {img.size}, Mode: {img.mode}'\\)\")"
+    ]
+  }
+}
