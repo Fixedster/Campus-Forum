@@ -135,49 +135,45 @@ export default function AiAssistant() {
   return (
     <div className="min-h-[calc(100vh-8rem)] flex flex-col">
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col">
-        {/* Header */}
-        <div className="bg-base-100 rounded-2xl shadow-sm border border-base-200/50 p-4 mb-4">
+        <div className="surface rounded-2xl p-4 mb-3 noise">
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/15 animate-glow-pulse">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-content" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-success rounded-full border-2 border-base-100"></div>
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-success rounded-full border-2 border-base-100"></div>
               </div>
               <div>
-                <h1 className="text-xl font-bold">AI 助手</h1>
-                <p className="text-xs text-base-content/50">Powered by DeepSeek</p>
+                <h1 className="text-lg font-extrabold tracking-tight">AI 助手</h1>
+                <p className="text-[11px] text-base-content/30 font-medium">Powered by DeepSeek</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              {/* Mode Tabs */}
-              <div className="tabs tabs-boxed bg-base-200/80 p-1 gap-1">
+              <div className="flex items-center gap-0.5 p-1 surface-soft rounded-lg">
                 {modes.map((m) => (
                   <button
                     key={m.key}
-                    className={`tab tab-sm rounded-lg transition-all duration-200 ${
+                    className={`px-2.5 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 ${
                       mode === m.key
-                        ? 'tab-active bg-primary text-primary-content shadow-sm'
-                        : 'hover:bg-base-300/50'
+                        ? 'bg-primary text-primary-content shadow-sm shadow-primary/20'
+                        : 'text-base-content/40 hover:text-base-content/60 hover:bg-base-200/60'
                     }`}
                     onClick={() => setMode(m.key)}
                   >
-                    <span className="flex items-center gap-1.5">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={m.icon} />
-                      </svg>
-                      {m.label}
-                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={m.icon} />
+                    </svg>
+                    {m.label}
                   </button>
                 ))}
               </div>
 
               <button
-                className="btn btn-ghost btn-sm btn-circle"
+                className="btn btn-ghost btn-sm btn-circle text-base-content/25 hover:text-base-content/55 transition-colors"
                 onClick={clearMessages}
                 title="清空对话"
               >
@@ -189,43 +185,39 @@ export default function AiAssistant() {
           </div>
         </div>
 
-        {/* Chat Area */}
-        <div className="bg-base-100 rounded-2xl shadow-sm border border-base-200/50 flex-1 flex flex-col overflow-hidden">
-          {/* Messages */}
+        <div className="surface rounded-2xl flex-1 flex flex-col overflow-hidden noise">
           <div
             ref={chatContainerRef}
             onScroll={handleScroll}
-            className="flex-1 overflow-y-auto p-4 md:p-6 space-y-5 relative"
+            className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 relative"
           >
             {messages.map((msg, index) => (
-              <div key={index} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                {/* Avatar */}
+              <div key={index} className={`flex gap-2.5 ${msg.role === 'user' ? 'flex-row-reverse' : ''} animate-slide-up`}>
                 <div className="flex-shrink-0">
                   {msg.role === 'user' ? (
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-primary-focus text-primary-content flex items-center justify-center font-bold text-sm shadow-sm">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/80 to-primary text-primary-content flex items-center justify-center font-bold text-xs shadow-sm">
                       {user?.nickname?.[0] || '我'}
                     </div>
                   ) : (
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-secondary to-accent text-secondary-content flex items-center justify-center shadow-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-primary text-primary-content flex items-center justify-center shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
                   )}
                 </div>
 
-                {/* Bubble */}
                 <div className={`flex flex-col max-w-[80%] ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-xs text-base-content/60">
+                    <span className="text-[11px] font-medium text-base-content/35">
                       {msg.role === 'user' ? (user?.nickname || '我') : 'AI 助手'}
                     </span>
-                    <span className="text-xs text-base-content/30">{formatTime(msg.timestamp)}</span>
+                    <span className="text-[10px] text-base-content/20">{formatTime(msg.timestamp)}</span>
                   </div>
-                  <div className={`rounded-2xl px-4 py-3 ${
+                  <div className={`rounded-2xl px-3.5 py-2.5 ${
                     msg.role === 'user'
-                      ? 'bg-primary text-primary-content rounded-tr-md shadow-sm'
-                      : 'bg-base-200 text-base-content rounded-tl-md shadow-sm'
+                      ? 'bg-primary text-primary-content rounded-tr-md shadow-sm shadow-primary/15'
+                      : 'surface-soft rounded-tl-md'
                   }`}>
                     {msg.type === 'image' ? (
                       <div className="space-y-2">
@@ -241,7 +233,7 @@ export default function AiAssistant() {
                           href={msg.content}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs underline opacity-60 hover:opacity-100 inline-flex items-center gap-1"
+                          className="text-[11px] underline opacity-50 hover:opacity-80 inline-flex items-center gap-1"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -250,14 +242,14 @@ export default function AiAssistant() {
                         </a>
                       </div>
                     ) : (
-                      <div className="whitespace-pre-wrap text-sm leading-relaxed">
+                      <div className="whitespace-pre-wrap text-[13px] leading-relaxed">
                         {msg.content}
                       </div>
                     )}
                   </div>
                   {msg.role === 'assistant' && msg.type !== 'image' && (
                     <button
-                      className="btn btn-ghost btn-xs text-base-content/30 hover:text-base-content/60 mt-1 gap-1 transition-colors"
+                      className="btn btn-ghost btn-xs text-base-content/20 hover:text-base-content/50 mt-0.5 gap-1 transition-colors"
                       onClick={() => copyToClipboard(msg.content)}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -270,18 +262,17 @@ export default function AiAssistant() {
               </div>
             ))}
 
-            {/* Loading Indicator */}
             {loading && (
-              <div className="flex gap-3">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-secondary to-accent text-secondary-content flex items-center justify-center shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="flex gap-2.5 animate-fade-in">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-primary text-primary-content flex items-center justify-center shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <div className="bg-base-200 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
+                <div className="surface-soft rounded-2xl rounded-tl-md px-3.5 py-2.5">
                   <div className="flex items-center gap-2">
                     <span className="loading loading-dots loading-sm text-primary"></span>
-                    <span className="text-sm text-base-content/50">AI 思考中...</span>
+                    <span className="text-[11px] text-base-content/30">AI 思考中...</span>
                   </div>
                 </div>
               </div>
@@ -290,10 +281,9 @@ export default function AiAssistant() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Scroll to Bottom Button */}
           {showScrollBtn && (
             <button
-              className="absolute bottom-28 right-8 btn btn-circle btn-sm btn-primary shadow-lg animate-fade-in"
+              className="absolute bottom-28 right-8 btn btn-circle btn-sm btn-primary shadow-lg shadow-primary/20 animate-fade-in"
               onClick={scrollToBottom}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -302,25 +292,24 @@ export default function AiAssistant() {
             </button>
           )}
 
-          {/* Input Area */}
-          <div className="border-t border-base-200/50 p-4">
-            <div className="flex gap-3 items-end">
+          <div className="border-t border-base-200/30 p-4">
+            <div className="flex gap-2.5 items-end">
               <div className="flex-1 relative">
                 <textarea
-                  className="textarea textarea-bordered w-full pr-12 resize-none rounded-xl focus:border-primary transition-colors"
+                  className="textarea textarea-bordered w-full pr-10 resize-none rounded-xl focus:border-primary/30 focus:outline-none text-[13px] bg-base-200/15 border-base-200/40 placeholder:text-base-content/20"
                   placeholder={currentMode.placeholder}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   rows={2}
                 />
-                <div className="absolute bottom-3 right-3 text-xs text-base-content/20">
+                <div className="absolute bottom-2.5 right-3 text-[10px] text-base-content/15">
                   {input.length}
                 </div>
               </div>
               <button
-                className={`btn btn-primary btn-circle shadow-lg hover:shadow-xl transition-all duration-200 ${
-                  loading || !input.trim() ? 'btn-disabled opacity-50' : 'hover:scale-105'
+                className={`btn btn-primary btn-circle shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 transition-all duration-200 ${
+                  loading || !input.trim() ? 'btn-disabled opacity-40' : 'hover:scale-105'
                 }`}
                 onClick={handleSend}
                 disabled={loading || !input.trim()}
@@ -335,25 +324,23 @@ export default function AiAssistant() {
               </button>
             </div>
 
-            <div className="mt-3 flex items-center flex-wrap gap-x-3 gap-y-1 text-xs text-base-content/40">
+            <div className="mt-2.5 flex items-center flex-wrap gap-x-3 gap-y-1 text-[11px] text-base-content/20">
               <span><kbd className="kbd kbd-xs">Enter</kbd> 发送</span>
               <span><kbd className="kbd kbd-xs">Shift + Enter</kbd> 换行</span>
-              <span className="badge badge-primary badge-xs">{currentMode.label}模式</span>
+              <span className="text-primary/40 font-medium">{currentMode.label}模式</span>
             </div>
           </div>
         </div>
 
-        {/* Tips Card */}
-        <div className="bg-base-100 rounded-2xl shadow-sm border border-base-200/50 p-4 mt-4">
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="surface rounded-xl p-3.5 mt-3 noise">
+          <div className="flex items-start gap-2.5">
+            <div className="w-6 h-6 rounded-md bg-primary/8 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-sm mb-1">使用提示</h3>
-              <p className="text-xs text-base-content/50 leading-relaxed">
+              <p className="text-[11px] text-base-content/35 leading-relaxed">
                 {modeTips[mode]}
               </p>
             </div>
