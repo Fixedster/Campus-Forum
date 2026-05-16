@@ -2,14 +2,14 @@
 
 一个现代化的校园论坛平台，采用前后端分离架构，支持文章发布、评论互动、AI智能助手等功能。
 
-## 🎯 项目特色
+##  项目特色
 
 - **AI 智能助手** - 集成 DeepSeek AI，支持聊天、写作辅助、图片生成
 - **现代化 UI** - 采用 Editorial Minimal 设计风格，简约大气，适合年轻用户
 - **完整功能** - 文章发布、评论互动、用户关注、收藏点赞等
 - **响应式设计** - 适配多种设备，良好的移动端体验
 
-## 🛠️ 技术栈
+##  技术栈
 
 ### 前端
 - **框架**: React 18 + TypeScript
@@ -27,7 +27,7 @@
 - **ORM**: MyBatis-Plus
 - **AI 集成**: LangChain4j + DeepSeek
 
-## 📦 项目结构
+##  项目结构
 
 ```
 campus-forum/
@@ -46,7 +46,7 @@ campus-forum/
 └── README.md
 ```
 
-## 🚀 快速开始
+##  快速开始
 
 ### 环境要求
 
@@ -76,7 +76,7 @@ npm run dev
 docker-compose up -d
 ```
 
-## 📱 功能演示
+##  功能演示
 
 ### 主页
 ![主页](./images/主页.jpg)
@@ -119,7 +119,7 @@ spring:
     password: your-password
 ```
 
-## 📝 API 接口
+##  API 接口
 
 | 接口 | 方法 | 描述 |
 |------|------|------|
@@ -130,7 +130,7 @@ spring:
 | `/api/ai/chat` | POST | AI 聊天 |
 | `/api/ai/image` | POST | AI 图片生成 |
 
-## 🎨 设计规范
+##  设计规范
 
 ### 设计理念
 - **Editorial Minimal** - 精致排版，极简风格
@@ -145,15 +145,15 @@ spring:
 ### 字体
 - 主字体: Plus Jakarta Sans
 
-## 📄 License
+##  License
 
 MIT License
 
-## 👤 作者
+##  作者
 
-曹佳乐
 
-## 🙏 致谢
+
+##  致谢
 
 - [React](https://react.dev/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
