@@ -79,22 +79,22 @@ docker-compose up -d
 ##  功能演示
 
 ### 主页
-![主页](./images/主页.jpg)
+![主页](./campus-forum/images/主页.jpg)
 
 ### 登录页面
-![登录页面](./images/登录页面.jpg)
+![登录页面](./campus-forum/images/登录页面.jpg)
 
 ### AI 助手
-![AI助手](./images/AI助手.jpg)
+![AI助手](./campus-forum/images/AI助手.jpg)
 
 ### 发布文章
-![发帖页面](./images/发帖页面.jpg)
+![发帖页面](./campus-forum/images/发帖页面.jpg)
 
 ### 个人主页
-![个人主页](./images/个人主页.jpg)
+![个人主页](./campus-forum/images/个人主页.jpg)
 
 ### 管理后台
-![管理页面](./images/管理页面.jpg)
+![管理页面](./campus-forum/images/管理页面.jpg)
 
 ## 🔧 配置说明
 
