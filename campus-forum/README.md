@@ -82,7 +82,8 @@ docker-compose up -d
 ![主页](./images/主页.jpg)
 
 ### 登录页面
-![登录页面](./images/登录页面.jpg)
+![Uploading 登录页面.png…]()
+
 
 ### AI 助手
 ![AI助手](./images/AI助手.jpg)
