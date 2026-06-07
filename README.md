@@ -1,4 +1,4 @@
-<img width="2560" height="1469" alt="登录页面" src="https://github.com/user-attachments/assets/daf7ebe7-e0b6-420b-8ffb-0fa11b534f82" /># Campus Forum - 校园论坛系统
+# Campus Forum - 校园论坛系统
 
 一个现代化的校园论坛平台，采用前后端分离架构，支持文章发布、评论互动、AI智能助手等功能。
 
@@ -82,7 +82,7 @@ docker-compose up -d
 ![主页](./campus-forum/images/主页.jpg)
 
 ### 登录页面
-![录页](./campus-forum/images/登录页面.jpg)
+<img width="2560" height="1469" alt="登录页面" src="https://github.com/user-attachments/assets/daf7ebe7-e0b6-420b-8ffb-0fa11b534f82" />
 
 ### AI 助手
 ![AI助手](./campus-forum/images/AI助手.jpg)
