@@ -32,6 +32,11 @@ api.interceptors.response.use(
   }
 );
 
+export const oauthApi = {
+  githubConfig: () => api.get('/oauth/github/config') as Promise<{ clientId: string; redirectUri: string }>,
+  githubLogin: (code: string) => api.post('/oauth/github/callback', { code }) as Promise<Tokens>,
+};
+
 export const userApi = {
   register: (data: { username: string; password: string; nickname?: string; email?: string; college?: string; major?: string; studentId?: string }) =>
     api.post('/user/register', data) as Promise<Tokens>,

@@ -13,6 +13,7 @@ CREATE TABLE `user` (
     `college` varchar(100) NOT NULL DEFAULT '' COMMENT '学院',
     `major` varchar(100) NOT NULL DEFAULT '' COMMENT '专业',
     `student_id` varchar(50) NOT NULL DEFAULT '' COMMENT '学号',
+    `github_id` varchar(64) DEFAULT NULL COMMENT 'GitHub用户ID',
     `role` tinyint NOT NULL DEFAULT 0 COMMENT '角色：0-普通用户 1-管理员 2-超级管理员',
     `status` tinyint NOT NULL DEFAULT 1 COMMENT '状态：0-禁用 1-正常',
     `deleted` tinyint NOT NULL DEFAULT 0 COMMENT '是否删除',
@@ -20,7 +21,8 @@ CREATE TABLE `user` (
     `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uk_username` (`username`),
-    KEY `idx_email` (`email`)
+    KEY `idx_email` (`email`),
+    KEY `idx_github_id` (`github_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户表';
 
 DROP TABLE IF EXISTS `category`;

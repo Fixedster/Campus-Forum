@@ -18,6 +18,7 @@ public class User {
     private String college;
     private String major;
     private String studentId;
+    private String githubId;
     private Integer role;
     private Integer status;
     @TableLogic

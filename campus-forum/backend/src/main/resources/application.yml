@@ -6,6 +6,8 @@ server:
 spring:
   application:
     name: campus-forum
+  profiles:
+    active: local
   datasource:
     url: jdbc:mysql://localhost:3306/campus_forum
     username: root
@@ -43,6 +45,12 @@ jwt:
 forum:
   name: Campus Forum
   description: 校园技术交流论坛
+
+oauth:
+  github:
+    client-id: ${GITHUB_CLIENT_ID:}
+    client-secret: ${GITHUB_CLIENT_SECRET:}
+    redirect-uri: ${GITHUB_REDIRECT_URI:http://localhost:3000/oauth/callback}
 
 ai:
   openai:

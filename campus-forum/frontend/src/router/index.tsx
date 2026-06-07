@@ -3,6 +3,7 @@ import MainLayout from '@/layouts/MainLayout';
 import Home from '@/pages/Home';
 import ArticleDetail from '@/pages/ArticleDetail';
 import Login from '@/pages/Login';
+import OAuthCallback from '@/pages/OAuthCallback';
 import UserCenter from '@/pages/UserCenter';
 import Publish from '@/pages/Publish';
 import Messages from '@/pages/Messages';
@@ -30,6 +31,7 @@ export default function AppRouter() {
       ],
     },
     { path: '/login', element: <Login /> },
+    { path: '/oauth/callback', element: <OAuthCallback /> },
     { path: '*', element: <Navigate to="/" replace /> },
   ]);
 }

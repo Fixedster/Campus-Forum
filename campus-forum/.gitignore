@@ -1,3 +1,6 @@
+# Local config (not committed)
+application-local.yml
+
 # IDE
 .idea/
 *.iml

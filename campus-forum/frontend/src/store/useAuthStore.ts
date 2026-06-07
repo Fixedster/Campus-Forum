@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { UserVO, Tokens } from '@/types';
-import { userApi } from '@/api';
+import { userApi, oauthApi } from '@/api';
 
 interface AuthState {
   user: UserVO | null;
@@ -9,6 +9,7 @@ interface AuthState {
   isSuperAdmin: boolean;
   login: (username: string, password: string) => Promise<void>;
   register: (data: { username: string; password: string; nickname?: string; email?: string }) => Promise<void>;
+  githubLogin: (code: string) => Promise<void>;
   logout: () => void;
   loadUser: () => Promise<void>;
 }
@@ -39,6 +40,19 @@ export const useAuthStore = create<AuthState>((set, get) => {
 
     register: async (data) => {
       const tokens = await userApi.register(data);
+      localStorage.setItem('tokens', JSON.stringify(tokens));
+      const user = await userApi.getCurrentUser();
+      localStorage.setItem('user', JSON.stringify(user));
+      set({
+        user,
+        isLogin: true,
+        isAdmin: user.role >= 1,
+        isSuperAdmin: user.role >= 2,
+      });
+    },
+
+    githubLogin: async (code) => {
+      const tokens = await oauthApi.githubLogin(code);
       localStorage.setItem('tokens', JSON.stringify(tokens));
       const user = await userApi.getCurrentUser();
       localStorage.setItem('user', JSON.stringify(user));
