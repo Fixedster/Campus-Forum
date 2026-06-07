@@ -82,8 +82,8 @@ docker-compose up -d
 ![主页](./campus-forum/images/主页.jpg)
 
 ### 登录页面
+![录页](./Campus Forum/images/登录页面.jpg)
 
-![录页](D:\桌面\简历\Campus Forum\images\登录页面.jpg)
 ### AI 助手
 ![AI助手](./campus-forum/images/AI助手.jpg)
 
