@@ -82,7 +82,7 @@ docker-compose up -d
 ![主页](./campus-forum/images/主页.jpg)
 
 ### 登录页面
-![登录页面](./campus-forum/images/登录页面.jpg)
+<img width="2560" height="1469" alt="登录页面" src="https://github.com/user-attachments/assets/7531f1a6-2761-45bf-97e3-7e1618bd6136" />
 
 ### AI 助手
 ![AI助手](./campus-forum/images/AI助手.jpg)
